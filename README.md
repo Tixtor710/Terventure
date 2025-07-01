@@ -1,5 +1,5 @@
 
-# 🚀 Terminal Adventure: The Key of SAAT-NUAST
+# TERVENTURE
 
 **A narrative-driven terminal RPG set in a fractured galaxy ruled by ancient houses, hidden history, and prophecy.**
 
