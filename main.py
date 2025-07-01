@@ -68,5 +68,6 @@ class Player:
 if __name__ == "__main__":
     player = intro()
     # player.status()  # Optional debug
-
+    print("\nYour adventure begins now...\n")
+    time.sleep(1)
     
