@@ -1,30 +1,72 @@
 #A space-based adventure of a crew of curious individuals exploring an unknown galaxy.
 #A “Day in the Life” story that walks you through choices the main character makes based on conditions like the time of day, the actions that the player take, etc.
 #A classic mini-RPG (role-playing game) with hp health points, character moves like attack/block/heal, and NPCs (non-player characters) that attacks based on a random number generator.
-import random
+import time
 
-print("Terminal Adventure")
-char_name= str(input("Enter your character's name: "))
+def intro():
+    print("\n=== TERMINAL ADVENTURE ===")
+    print("A space-based saga across the stars...\n")
+    time.sleep(1)
 
-print("Welcome "+char_name)
+    char_name = input("🌠 Enter your character's name: ").strip().title()
 
-print("Answer the following questions; Your answer will determine your path.Hence,Choose wisely.")
+    print(f"\nWelcome aboard, {char_name}.")
+    print("Your personality will shape your fate... Choose wisely.\n")
 
-q1=input("What kind of adjective suits you the best\n 1. The Warrior\n 2.The lone Wolf\n 3.The Trickster\n")
+    print("Choose your role:")
+    print("1. The Warrior")
+    print("2. The Lone Wolf")
+    print("3. The Trickster")
 
-if q1== "1" or "The Warrior":
-  print("That sounds Great "+char_name+" the Warrior")
-elif q1 =="2" or "The lone Wolf":
-  print("Don't worry!, along the way you'll find your mates, "+char_name+" the lone wolf")
-elif q1 == "3" or "The Trickster":
-  print("Hold Up, I don't think you can best loki, but you can still try")
-else:
-  print("invalid input")
+    valid_roles = {"1": "The Warrior", "2": "The Lone Wolf", "3": "The Trickster"}
+    
+    role_input = input("Enter the number or name of your role: ").strip().lower()
+    role = None
 
-character=q1
-if character == "1" or "The Warrior":
-  print("A day in the life of a warrior is nothing short of hurdles and pain but you have your crew to support you!")
-elif character == "2" or "The lone Wolf":
-  print("The way of the lone wolf, trouble follows you everywhere but your might will overcome any odds.")
-else:
-  print("You are beloved and hated by many, but convicted by none.")
+    # Normalize input
+    for key, value in valid_roles.items():
+        if role_input == key or role_input == value.lower():
+            role = value
+            break
+
+    if not role:
+        print("❌ Invalid choice. Defaulting to 'The Wanderer'.")
+        role = "The Wanderer"
+
+    print()
+    print_role_intro(char_name, role)
+    return Player(char_name, role)
+
+
+def print_role_intro(name, role):
+    print(f"🧬 Initializing profile: {name} the {role}\n")
+    time.sleep(1)
+
+    if role == "The Warrior":
+        print("⚔️ A day in the life of a warrior is filled with danger, but your crew stands beside you.")
+    elif role == "The Lone Wolf":
+        print("🐺 Trouble follows you like a shadow, but your strength knows no master.")
+    elif role == "The Trickster":
+        print("🎭 You dance on the edge of chaos, charming fate into your favor.")
+    else:
+        print("🌌 A mysterious traveler, your path is yours to write.")
+
+
+class Player:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+        self.hp = 100
+        self.inventory = []
+        # Future stats: attack, defense, alignment, etc.
+
+    def status(self):
+        print(f"{self.name} the {self.role} | HP: {self.hp}")
+
+
+# === Entry Point ===
+if __name__ == "__main__":
+    player = intro()
+    # player.status()  # Optional debug
+
+    
