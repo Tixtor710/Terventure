@@ -71,7 +71,7 @@ This is a **single-player, text-based RPG** built entirely in Python.
 
 ## 📜 Credits
 
-- Story & Game Design: [Your Name / Tixtor710]
+- Story & Game Design: Robin Robert
 - Inspired by: Dune, Mass Effect, The Expanse, Star Wars
 
 ---
